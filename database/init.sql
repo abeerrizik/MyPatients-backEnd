@@ -22,7 +22,8 @@ CREATE TABLE treatments (
   id SERIAL PRIMARY KEY,
   treatment_time Time NOT NULL,
   description TEXT, 
-  patient_id INTEGER REFERENCES patients(id)
+  patient_id INTEGER REFERENCES patients(id),
+  status boolean
 );
 
 INSERT INTO nurses (id_num,full_name,password) VALUES
@@ -35,9 +36,9 @@ INSERT INTO patients (id_num,full_name,room,bed,nurse_id) VALUES
 ('311487956','ahmad hassan','1','2',2),
 ('311466589','reem jad','4','1',2);
 
-INSERT INTO treatments(treatment_time,description,patient_id) VALUES
-('07:00','2 pills of antibiotics',1),
-('08:00','3 pills of antibiotics',1);
+INSERT INTO treatments(treatment_time,description,patient_id,status) VALUES
+('07:00','2 pills of antibiotics',1,false),
+('08:00','3 pills of antibiotics',1,false);
 
 COMMIT;
  
