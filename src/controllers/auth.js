@@ -1,3 +1,4 @@
+const model = require("../models/nurses")
 exports.login = async (req, res) => {
     try {
         const {password, id} = req.body;
@@ -14,7 +15,7 @@ exports.login = async (req, res) => {
             code: 200,
         });
     } catch ({message}) {
-        return res.status(200).json({message});
+        return res.json({message,code:401});
     }
 };
 

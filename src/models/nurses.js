@@ -32,18 +32,13 @@ exports.getNurseSchedule = async (nurse_id) => {
                     patients.bed              as "Bed",
                     patients.id_num           as "Patient id num",
                     patients.id               as "Patient id",
+                    patients.nurse_id               as "Nurse id",
                     treatments.description    as "Description",
                     treatments.status,
                     treatments.id
              from treatments
                       inner join patients on patients.id = treatments.patient_id
-                      inner join
-                  (
-                      select *
-                      from patients
-                      where id = $1
-                  ) as this_nurse_patients
-                  on (treatments.patient_id = this_nurse_patients.id)
+             where nurse_id = $1
              order by treatments.treatment_time;  `,
         [nurse_id]
     );

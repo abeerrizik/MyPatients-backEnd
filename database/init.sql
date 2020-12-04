@@ -21,7 +21,7 @@ CREATE TABLE patients (
 
 CREATE TABLE treatments (
   id SERIAL PRIMARY KEY,
-  treatment_time Time NOT NULL,
+  treatment_time timestamptz NOT NULL,
   description TEXT,
   patient_id INTEGER REFERENCES patients(id),
   status boolean
@@ -38,7 +38,9 @@ INSERT INTO patients (id_num,full_name,room,bed,nurse_id) VALUES
 ('311466589','reem jad','4','1',2);
 
 INSERT INTO treatments(treatment_time,description,patient_id,status) VALUES
-('07:00','2 pills of antibiotics',1,false),
-('08:00','3 pills of antibiotics',1,false);
+('2020-12-04T20:24:00+02','2 pills of antibiotics',1,false),
+('2020-12-04T19:56:00+02','2 pills of antibiotics',3,false),
+('2020-12-04T19:59:00+02','2 pills of antibiotics',3,false),
+('2020-12-04T19:50:00+02','3 pills of antibiotics',1,false);
 
 COMMIT;

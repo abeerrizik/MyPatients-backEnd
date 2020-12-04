@@ -1,4 +1,4 @@
-const { pushNotification } = require("../models/notificationsManager");
+const { pushNotification } = require("../util/notificationsManager");
 const { addSubscribe } = require("../models/nurses");
 
 exports.getPublicKey = (req, res) => {
@@ -6,6 +6,7 @@ exports.getPublicKey = (req, res) => {
 };
 
 exports.subscribe = async (req, res) => {
+
   if (req.cookies.nurse_id === undefined) return;
   await addSubscribe(req.cookies.nurse_id, req.body);
   pushNotification(req.body, "this is a test");

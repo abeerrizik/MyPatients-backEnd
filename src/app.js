@@ -1,6 +1,6 @@
 const express = require("express");
 const controllers = require("./controllers");
-
+const schedulerUtil = require("./util/schedulerUtil")
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 //set app
@@ -24,5 +24,8 @@ app.set("port", process.env.PORT || 4000);
 app.use(express.json());
 app.use(cookieParser());
 app.use(controllers);
+
+schedulerUtil.loadAllSchedules()
+
 
 module.exports = app;
