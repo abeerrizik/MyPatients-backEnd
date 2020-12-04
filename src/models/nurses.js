@@ -35,7 +35,7 @@ exports.getNurseSchedule = async (nurse_id) => {
                   (
                       select *
                       from patients
-                      where nurse_id = 1
+                      where nurse_id = $1
                   ) as this_nurse_patients
                   on (treatments.patient_id = this_nurse_patients.id)
              order by treatments.treatment_time;  `,
