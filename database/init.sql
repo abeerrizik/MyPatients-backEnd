@@ -6,7 +6,8 @@ CREATE TABLE nurses (
   id SERIAL PRIMARY KEY,
   id_num SERIAL NOT NULL UNIQUE,
   full_name VARCHAR(255) NOT NULL,
-  password VARCHAR(250)
+  password VARCHAR(250),
+  notification JSON
 );
 
 CREATE TABLE patients (

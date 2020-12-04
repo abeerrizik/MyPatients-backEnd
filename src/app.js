@@ -1,7 +1,7 @@
 const express = require("express");
 const controllers = require("./controllers");
 
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 //set app
 const app = express();
@@ -22,7 +22,7 @@ app.set("port", process.env.PORT || 4000);
 
 //set API routes
 app.use(express.json());
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(controllers);
 
 module.exports = app;

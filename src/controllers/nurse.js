@@ -7,17 +7,12 @@ exports.login = async (req, res) => {
   try {
     const { password, id } = req.body;
 
-    const nurse = await model.getDataById(id);
-    console.log(password, nurse.password);
+    const nurse = await model.getDataByIdNum(id);
+    console.log(nurse.notification.keys);
 
     if (!nurse) throw new Error("The id is incorrect");
 
     if (password !== nurse.password) throw new Error("Password is incorrect");
-
-    // const token = await jwt.sign(
-    //   { nurses: nurse.id_num, id: nurse.id },
-    //   process.env.JWT_SECRET
-    // );
 
     res.cookie("nurse_id", nurse.id);
     res.json({
