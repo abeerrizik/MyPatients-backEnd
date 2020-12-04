@@ -15,6 +15,6 @@ router.post("/notifications", notifications.subscribe);
 router.get("/nurse", nurses.getNurseData);
 
 router.get("/nurse/schedule", nurses.getSchedule);
-router.get("/treatment", treatments.toggleStatus);
+router.post("/treatment", treatments.toggleStatus);
 
 module.exports = router;
