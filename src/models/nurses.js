@@ -5,6 +5,12 @@ exports.getDataByIdNum = async (id) => {
 
     return data.rows.length ? data.rows[0] : null;
 };
+exports.getDataById = async (id) => {
+    const data = await db.query("select * from nurses where id=$1", [id]);
+
+    return data.rows.length ? data.rows[0] : null;
+};
+
 
 exports.addSubscribe = async (id, sub) => {
     await db.query("update nurses set subscription=$1 where id=$2", [sub, id]);
@@ -35,7 +41,7 @@ exports.getNurseSchedule = async (nurse_id) => {
                   (
                       select *
                       from patients
-                      where nurse_id = $1
+                      where id = $1
                   ) as this_nurse_patients
                   on (treatments.patient_id = this_nurse_patients.id)
              order by treatments.treatment_time;  `,
