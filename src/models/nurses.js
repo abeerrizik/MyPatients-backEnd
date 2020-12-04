@@ -27,7 +27,8 @@ exports.getNurseSchedule = async (nurse_id) => {
                     patients.id_num           as "Patient id num",
                     patients.id               as "Patient id",
                     treatments.description    as "Description",
-                    treatments.status
+                    treatments.status,
+                    treatments.id
              from treatments
                       inner join patients on patients.id = treatments.patient_id
                       inner join
