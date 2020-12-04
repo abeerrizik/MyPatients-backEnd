@@ -13,7 +13,7 @@ exports.loadAllSchedules = async () => {
                 nurseModel
                     .getDataById(treatmentData["Nurse id"])
                     .then((nurseData) =>
-                        pushNotification(nurseData.subscription, `it's treatment time, at room ${data.Room} `))
+                        pushNotification(nurseData.subscription, `it's treatment time, at room ${data.Room} `,{treatmentId:data.id}))
             })
         })
 }
