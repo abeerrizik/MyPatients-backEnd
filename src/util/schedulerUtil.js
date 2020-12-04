@@ -9,11 +9,10 @@ exports.loadAllSchedules = async ()=>{
     treatments
         .filter(data=> data.Time > today )
         .forEach(data=>{
-        scheduler.scheduleJob(data.Time,()=>{
-
-            nurseModel.getDataById(data["Nurse id"]).then((nurseData)=>
-                pushNotification(nurseData.subscription,"this is a test") )
-
+            scheduler.scheduleJob(data.Time,()=>{
+            nurseModel.getDataById(data["Nurse id"]).then((nurseData)=> {
+                pushNotification(nurseData.subscription, "this is a test")
+            })
         })
     })
 

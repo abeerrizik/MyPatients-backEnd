@@ -2,7 +2,6 @@ const model = require("../models/nurses");
 
 exports.getNurseData = async (req,res)=>{
     const data = await model.getDataById(req.cookies.nurse_id)
-    console.log(data)
     res.json(data);
 }
 
