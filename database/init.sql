@@ -7,7 +7,7 @@ CREATE TABLE nurses (
   id_num SERIAL NOT NULL UNIQUE,
   full_name VARCHAR(255) NOT NULL,
   password VARCHAR(250),
-  notification JSON
+  subscription JSON
 );
 
 CREATE TABLE patients (
@@ -22,7 +22,7 @@ CREATE TABLE patients (
 CREATE TABLE treatments (
   id SERIAL PRIMARY KEY,
   treatment_time Time NOT NULL,
-  description TEXT, 
+  description TEXT,
   patient_id INTEGER REFERENCES patients(id),
   status boolean
 );
@@ -42,4 +42,3 @@ INSERT INTO treatments(treatment_time,description,patient_id,status) VALUES
 ('08:00','3 pills of antibiotics',1,false);
 
 COMMIT;
- 

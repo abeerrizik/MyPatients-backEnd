@@ -1,8 +1,5 @@
 const model = require("../models/nurses");
 
-const bcrypt = require("bcrypt");
-// const jwt = require("jsonwebtoken");
-
 exports.login = async (req, res) => {
   try {
     const { password, id } = req.body;
