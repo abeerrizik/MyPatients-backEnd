@@ -4,9 +4,9 @@ exports.login = async (req, res) => {
         const {password, id} = req.body;
         const nurse = await model.getDataByIdNum(id);
 
-        if (!nurse) throw new Error("The id is incorrect");
+        if (!nurse) throw new Error();
 
-        if (password !== nurse.password) throw new Error("Password is incorrect");
+        if (password !== nurse.password) throw new Error();
 
         res.cookie("nurse_id", nurse.id);
         res.json({
@@ -15,7 +15,7 @@ exports.login = async (req, res) => {
             code: 200,
         });
     } catch ({message}) {
-        return res.json({message,code:401});
+        return res.json({message:"Incorrect Credentials",code:401});
     }
 };
 
