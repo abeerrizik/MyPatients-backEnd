@@ -32,9 +32,9 @@ INSERT INTO nurses (id_num,full_name,password) VALUES
 ('234567890','raneen bransi','1234');
 
 INSERT INTO patients (id_num,full_name,room,bed,nurse_id) VALUES
-('45721346','tala amoury','15','3',1),
 ('213497569','hanan hassan','1','2',1),
 ('311487956','ahmad hassan','1','2',2),
+('45721346','tala amoury','15','3',1),
 ('311466589','reem jad','4','1',2);
 
 INSERT INTO treatments(treatment_time,description,patient_id,status) VALUES

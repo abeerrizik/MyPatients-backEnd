@@ -9,6 +9,5 @@ exports.subscribe = async (req, res) => {
 
   if (req.cookies.nurse_id === undefined) return;
   await addSubscribe(req.cookies.nurse_id, req.body);
-  pushNotification(req.body, "this is a test");
   res.json({});
 };
