@@ -7,7 +7,7 @@ const auth = require("./auth");
 const treatments = require("./treatments");
 
 router.post("/login", auth.login);
-router.post("/logout", auth.logout);
+router.get("/logout", auth.logout);
 router.get("/notifications/key", notifications.getPublicKey);
 router.post("/notifications", notifications.subscribe);
 
